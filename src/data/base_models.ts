@@ -30,7 +30,7 @@ export default [
       "CC_Base_Body_5",
       "CC_Base_Body_6"
     ],
-    "traitsDirectory": "https://nolimitcrypto.s3.us-west-2.amazonaws.com/model_traits/female_thin",
+    "traitsDirectory": "https://nftstorage.link/ipfs/bafybeihssdkoqhqnhewwx4ynacuwsvzgwnm335mmok53mhzeiu7qhxtami",
     "thubnailsDirectory": "https://nolimitcrypto.s3.us-west-2.amazonaws.com/model_traits/thubnails"
   }
 ]
