@@ -3,6 +3,7 @@ import { VRM, VRMSchema } from "@pixiv/three-vrm"
 import React, { Suspense, useState, useEffect, Fragment } from "react"
 import { GLTFLoader } from "three/examples/jsm/loaders/GLTFLoader"
 import DownloadCharacter from "./Download"
+import MintCharacter from "./Mint"
 import LoadingOverlayCircularStatic from "./LoadingOverlay"
 import { sceneService } from "../services"
 import Scene from "./Scene"
@@ -32,7 +33,7 @@ export default function CharacterEditor(props: any) {
   // const [animations, setAnimations] = useState<object>(Object);
   // const [body, setBody] = useState<any>();
 
-  const { theme, templates, mintPopup } = props
+  const { theme, templates } = props
   // Selected category State Hook
   const [category, setCategory] = useState("color")
   // 3D Model Content State Hooks ( Scene, Nodes, Materials, Animations e.t.c ) //
@@ -43,6 +44,7 @@ export default function CharacterEditor(props: any) {
   const [templateInfo, setTemplateInfo] = useState({ file: null, format: null })
 
   const [downloadPopup, setDownloadPopup] = useState<boolean>(false)
+  const [mintPopup, setMintPopup] = useState<boolean>(false)  
   const [template, setTemplate] = useState<number>(1)
   const [loadingModelProgress, setLoadingModelProgress] = useState<number>(0)
   const [ avatar,setAvatar] = useState<Avatar>({
@@ -114,11 +116,20 @@ export default function CharacterEditor(props: any) {
               downloadPopup={downloadPopup}
               setDownloadPopup={setDownloadPopup}
             />
+            <MintCharacter
+              scene={scene}
+              templateInfo={templateInfo}
+              model={model}
+              mintPopup={mintPopup}
+              setMintPopup={setMintPopup}
+            />
             <Scene
               wrapClass="generator"
               templates={templates}
               scene={scene}
               downloadPopup={downloadPopup}
+              setDownloadPopup={setDownloadPopup}
+              setMintPopup={setMintPopup}
               mintPopup={mintPopup}
               category={category}
               setCategory={setCategory}
